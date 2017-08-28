@@ -1,14 +1,28 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
-      Ionic Blank
+      평화 교회 Posts
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-card *ngFor="let post of posts | async" (click)="openPost(post)" >
+<!-- 
+    <img [src]="post.media_url | async" alt="">
+-->
+    <ion-item>
+<!--
+     <ion-avatar>
+        <img [src]="getUserImage(post.authorId)" alt="">
+      </ion-avatar>
+-->
+      <h2> {{ getUserName(post.authorId) }} </h2>
+    </ion-item>
+    <ion-card-content>
+      {{ post.title }}
+    </ion-card-content>
+    <div [innerHTML]="post.excerpt"></div> 
+  </ion-card> 
+  
 </ion-content>

@@ -1,5 +1,8 @@
 {
   "name": "peace-wp-client",
-  "app_id": "",
-  "type": "ionic-angular"
+  "app_id": "d8ac6a2a",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }
