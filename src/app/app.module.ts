@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { LoginPage} from '../pages/login/login';
 import { WpProvider } from '../providers/wp/wp';
 
 import { Http, HttpModule } from '@angular/http';
@@ -18,13 +19,16 @@ import { ConstantProvider } from '../providers/constant/constant';
 
 
 export function WpApiLoaderFactory(http) {
-  return new WpApiStaticLoader(http, 'http://peacech.net/wp-json/');
+  
+  return new WpApiStaticLoader(http, 'https://devdactic.com/wp-json/');
+  //return new WpApiStaticLoader(http, 'http://peacech.net/wp-json/');
 }
  
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,8 @@ export function WpApiLoaderFactory(http) {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage
   ],
   providers: [
     StatusBar,
