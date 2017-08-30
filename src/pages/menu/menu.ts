@@ -1,16 +1,11 @@
-import {} from './../tabs/tabs';
-import {} from './../tab1/tab1';
-import {} from './../tab2/tab2';
+import { PageInterface } from './menu';
+import { TabsPage } from './../tabs/tabs';
+import { Tab1Page } from './../tab1/tab1';
+import { Tab2Page } from './../tab2/tab2';
 
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 
-/**
- * Generated class for the MenuPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 export interface PageInterface {
   title: string;
   pageName: string;
@@ -30,10 +25,10 @@ export class MenuPage {
 
   @ViewChild(Nav) nav: Nav;
 
-  Pages: PageInterface[] = [
+  pages: PageInterface[] = [
     { title: 'Tab 1', pageName: 'TabsPage', tabComponent: 'Tab1Page', index: 0, icon: 'home' },
     { title: 'Tab 2', pageName: 'TabsPage', tabComponent: 'Tab2Page', index: 1, icon: 'contacts' },
-    { title: 'Special', pageName: 'Special', icon: 'shuffle'},
+    { title: 'Special', pageName: 'SpecialPage', icon: 'shuffle'},
   ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -74,8 +69,8 @@ export class MenuPage {
     }
 
     // Fallback needed when there is no active childnav(tabs not active)
-    // 활성 childnav가없는 경우 폴백 필요 (탭이 활성화되지 않음)
-    if(this.nav.getActive() && this.nav.getActive().name == page.pageName) {
+    // 활성 childnav가 없는 경우 폴백 필요 (탭이 활성화되지 않음)
+    if(this.nav.getActive() && this.nav.getActive().name === page.pageName) {
       return 'primary';
     }
     return;
