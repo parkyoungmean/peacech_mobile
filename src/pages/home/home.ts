@@ -21,13 +21,13 @@ export class HomePage {
     this.presentLoading();
     this.posts = this.wpProvider.getPosts();
     this.posts.subscribe(data => { 
-        console.log('my data:', data);
+        console.log('wp data:', data);
         this.loader.dismiss();
     });
     
-    this.oldPosts = this.wpProvider.getOldtPosts();
+    this.oldPosts = this.wpProvider.getOldPosts();
     this.oldPosts.subscribe(data => { 
-      console.log('my data:', data);
+      console.log('old data:', data);
       this.loader.dismiss();
   });
     
@@ -53,12 +53,18 @@ export class HomePage {
   }
  
   openPost(post: Post) {
-    this.navCtrl.push('PostPage', {post: post});
+    this.navCtrl.push('DetailPage', {post: post});
   }
  
+  openModal() {
+    this.navCtrl.setRoot('MenuPage');
+  }
+
+  
   presentLoading() {
     this.loader = this.loadingCtrl.create({
-      content: "Loading..."
+      //content: "Loading..."
+      content: "로딩 중입니다..."
     });
     this.loader.present();
   }

@@ -16,7 +16,7 @@ export class Post {
 
 export class OldPost {
   public media_url: Observable<string>;
-  constructor(public creator: number, public guid: number, public title: string, public description: string, public link: string, public pubDate: string, public mediaId?: number) { }
+  constructor(public authorId: string, public id: number, public title: string, public content: string, public link: string, public date: string, public mediaId?: number) { }
 }
 
 
@@ -52,9 +52,10 @@ export class WpProvider {
     return this.wpApiPosts.getList()
       .map(res => res.json())
       .map(data => {
+        console.log(data);
         var posts = [];
         for (let post of data) {
-          let onePost = new Post(post[ 'author' ], post[ 'id' ], post[ 'title' ][ 'rendered' ], post[ 'content' ][ 'rendered' ], post[ 'excerpt' ][ 'rendered' ], post[ 'date' ], post[ 'featured_media' ]);
+          let onePost = new Post(post[ 'id' ], post[ 'd_id' ], post[ 'title' ][ 'rendered' ], post[ 'content' ][ 'rendered' ], post[ 'excerpt' ][ 'rendered' ], post[ 'date' ], post[ 'featured_media' ]);
           onePost.media_url = this.getMedia(onePost.mediaId);
           posts.push(onePost);
         }
@@ -62,16 +63,24 @@ export class WpProvider {
       });
   }
 
-  getOldtPosts(): Observable<OldPost[]> {
-    return this.http.get('assets/data/youth_cell3.json')
+  getOldPosts(): Observable<OldPost[]> {
+    return this.http.get('assets/data/xe_document.json')
+    //return this.http.get('assets/data/youth_cell3.json')
       .map(res => res.json())
       .map(data => {
+        //console.log(data);
+        console.log(data.peacech2009.xe_documents);
         var posts = [];
-        for (let post of data) {
-          let onePost = new OldPost(post[ 'creator' ]['__text'], post[ 'guid' ]['__text'], post[ 'title' ], post[ 'description' ], post[ 'link' ], post[ 'pubDate' ], post[ 'featured_media' ]);
+        var oneData = data.peacech2009.xe_documents;
+        for (let post of oneData) {
+          let onePost = new OldPost(post[ 'nick_name' ], post['document_srl'], post[ 'title' ], post[ 'content' ], post[ 'link' ], post[ 'last_update' ], post[ 'featured_media' ]);
+          
+          //let onePost = new OldPost(post[ 'creator' ]['__text'], post[ 'guid' ]['__text'], post[ 'title' ], post[ 'description' ], post[ 'link' ], post[ 'pubDate' ], post[ 'featured_media' ]);
           onePost.media_url = this.getMedia(onePost.mediaId);
           posts.push(onePost);
+          
         }
+        //console.log(posts);
         return posts;
       });
   }

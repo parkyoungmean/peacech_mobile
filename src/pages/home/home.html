@@ -1,5 +1,10 @@
 <ion-header>
   <ion-navbar color="primary">
+      <ion-buttons end>
+          <button ion-button icon-only (click)="openModal()">
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-buttons>  
     <ion-title>
       평화 교회 Posts
     </ion-title>
@@ -7,20 +12,24 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let post of posts | async" (click)="openPost(post)" >
-<!-- 
-    <img [src]="post.media_url | async" alt="">
--->
+  <ion-card *ngFor="let post of posts | async" (click)="openPost(post)" tappable>
+
+<!--    <img [src]="post.media_url | async">      -->
+
     <ion-item>
+
 <!--
-     <ion-avatar>
-        <img [src]="getUserImage(post.authorId)" alt="">
+      <ion-avatar>
+        <img [src]="getUserImage(post.authorId)">
       </ion-avatar>
 -->
+
       <h2> {{ getUserName(post.authorId) }} </h2>
     </ion-item>
     <ion-card-content>
-      {{ post.title }}
+      <ion-card-title>
+        {{ post.title }}
+      </ion-card-title>
     </ion-card-content>
     <div [innerHTML]="post.excerpt"></div> 
   </ion-card> 

@@ -17,11 +17,11 @@ import {
 } from 'wp-api-angular';
 import { ConstantProvider } from '../providers/constant/constant';
 
-
+///Users/PYM/peace-wp-client/src/assets/data/xe_document_category.json
 export function WpApiLoaderFactory(http) {
-  
-  return new WpApiStaticLoader(http, 'https://devdactic.com/wp-json/');
-  //return new WpApiStaticLoader(http, 'http://peacech.net/wp-json/');
+  //return new WpApiStaticLoader(http, 'assets/data/youth_cell3.json');
+  //return new WpApiStaticLoader(http, 'https://devdactic.com/wp-json/');
+  return new WpApiStaticLoader(http, 'http://peacech.net/wp-json/');
 }
  
 @NgModule({
