@@ -17,6 +17,16 @@ import {
 } from 'wp-api-angular';
 import { ConstantProvider } from '../providers/constant/constant';
 
+/*
+  fireBase 임포트
+*/
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { FIREBASE_CONFIG } from "./app.firebase.config";
+
+
+
+
 ///Users/PYM/peace-wp-client/src/assets/data/xe_document_category.json
 export function WpApiLoaderFactory(http) {
   //return new WpApiStaticLoader(http, 'assets/data/youth_cell3.json');
@@ -38,6 +48,8 @@ export function WpApiLoaderFactory(http) {
       useFactory: (WpApiLoaderFactory),
       deps: [Http]
     }),
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireAuthModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
