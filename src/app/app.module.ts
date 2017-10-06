@@ -23,6 +23,7 @@ import { ConstantProvider } from '../providers/constant/constant';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FIREBASE_CONFIG } from "./app.firebase.config";
+import { AuthProvider } from '../providers/auth/auth';
 
 
 
@@ -63,7 +64,8 @@ export function WpApiLoaderFactory(http) {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     WpProvider,
-    ConstantProvider
+    ConstantProvider,
+    AuthProvider
   ]
 })
 export class AppModule {}

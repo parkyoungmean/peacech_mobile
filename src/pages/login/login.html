@@ -15,18 +15,26 @@
 
 <ion-content padding>
   <h4 align="center">Ionic 3 - Firebse Auth.</h4>
+
   <ion-item>
-    <ion-label align="center" floating>아이디 혹은 이메일 주소</ion-label>
-    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+    <ion-label stacked align="center" floating >아이디 혹은 이메일 주소</ion-label>
+    <ion-input type="email" [(ngModel)]="user.email"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label align="center" floating>비밀번호</ion-label>
+    <ion-label stacked align="center" floating>비밀번호</ion-label>
     <ion-input type="password" [(ngModel)]="user.password"></ion-input>
   </ion-item>
 
-  <button ion-button block> 페이스북으로 로그인</button>
-  <button ion-button full (click)="doLogin(user)">로그인</button>
-  <button ion-button color="light" full (click)="register()">회원가입</button>
-
+  <button ion-button full round color="secondary" (click)="doLogin(user)">로그인</button>
+<!--  <button full *ngIf="!email && !password" ion-button color="danger" clear> 로그인하세요!</button> -->
+  <button ion-button round block> 페이스북으로 로그인</button>
+  <br/>
+  <div>
+      <button ion-button round block clear color="gray" (click)="forgetPassword()">비밀번호를 잊어버리셨습니까?</button>
+  </div>
+  <div>
+      <button ion-button round full clear color="gray" (click)="register()">회원가입</button>
+  </div>
+  
 </ion-content>

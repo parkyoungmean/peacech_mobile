@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User } from "../../models/user";
 
+import { AuthProvider } from "../../providers/auth/auth";
+
 /**
  * import AngularFireAuth Module
  */
-import { AngularFireAuth } from "angularfire2/auth";
+//import { AngularFireAuth } from "angularfire2/auth";
 
 /**
  * Generated class for the RegisterPage page.
@@ -22,17 +24,19 @@ import { AngularFireAuth } from "angularfire2/auth";
 export class RegisterPage {
   user = {} as User;
   
-  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private auth:AuthProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   register(user: User){
-      const result = this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
+    
+    const result = this.auth.signUp(user.email, user.password);
 
     if(result){
       console.log(result);
     }
     else if (Error) {
       console.error(Error);
+      alert("작성하신 양식이 정확한지 다시 확인해주세요")
     }
   }
 }
