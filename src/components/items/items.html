@@ -1,0 +1,9 @@
+<!-- Generated template for the ItemsComponent component -->
+<ion-list *ngIf="items.length > 0">
+    <ion-item *ngFor="let item of items">
+        <item [item]="item"></item>
+    </ion-item>
+</ion-list>
+<p *ngIf="items.length === 0">
+    No items.
+</p>

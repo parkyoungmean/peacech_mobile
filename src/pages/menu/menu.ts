@@ -1,4 +1,3 @@
-import { PageInterface } from './menu';
 import { TabsPage } from './../tabs/tabs';
 import { Tab1Page } from './../tab1/tab1';
 import { Tab2Page } from './../tab2/tab2';

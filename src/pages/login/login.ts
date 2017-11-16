@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { User }   from "../../models/user";
+
+import { AngularFireAuth } from "angularfire2/auth";
 /**
  * Generated class for the LoginPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
+
 
 @IonicPage()
 @Component({
@@ -15,6 +19,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
+  user = {} as User;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -22,6 +27,10 @@ export class LoginPage {
     this.navCtrl.setRoot('MenuPage');
   }
 
+  register(){
+    this.navCtrl.push('RegisterPage');
+
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }

@@ -1,37 +1,86 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar>
       <ion-buttons end>
-          <button ion-button icon-only (click)="openModal()">
-            <ion-icon name="menu"></ion-icon>
-          </button>
-        </ion-buttons>  
-    <ion-title>
-      평화 교회 Posts
-    </ion-title>
+        <button ion-button icon-only (click)="openModal()">
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>  
+      <ion-title text-center>
+          <img alt="logo" height="40" src="http://peacech.net/wp-content/uploads/2017/01/교회로고.png">
+          <!--<img alt="logo" height="40" src="assets/logo/교회로고.png">-->
+      </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let post of posts | async" (click)="openPost(post)" tappable>
 
-<!--    <img [src]="post.media_url | async">      -->
+  <ion-slides autoplay="5000" loop="true" speed="600" pager=true style="max-height:100px">
+    <ion-slide>
+        <div class="swiper-zoom-container">
+            <img src="https://peacechurch-5fff5.firebaseapp.com/1.png">
+        </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="swiper-zoom-container">
+          <img src="https://peacechurch-5fff5.firebaseapp.com/2.png">
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="swiper-zoom-container">
+          <img src="https://peacechurch-5fff5.firebaseapp.com/3.png">
+      </div>
+    </ion-slide>
+  </ion-slides>
 
-    <ion-item>
-
-<!--
-      <ion-avatar>
-        <img [src]="getUserImage(post.authorId)">
-      </ion-avatar>
--->
-
-      <h2> {{ getUserName(post.authorId) }} </h2>
-    </ion-item>
-    <ion-card-content>
-      <ion-card-title>
-        {{ post.title }}
-      </ion-card-title>
-    </ion-card-content>
-    <div [innerHTML]="post.excerpt"></div> 
-  </ion-card> 
+  <ion-segment [(ngModel)]="menuType" color="primary02">
+    <ion-segment-button value="basic">
+      기본 메뉴
+    </ion-segment-button>
+    <ion-segment-button value="about">
+      교회 소개
+    </ion-segment-button>
+    <ion-segment-button value="map">
+      찾아오시는 길
+    </ion-segment-button>
+  </ion-segment>
   
+  <div [ngSwitch]="menuType">
+      <ion-grid *ngSwitchCase= "'basic'" >
+        <ion-row>
+          <ion-col col-6 col-md-4 col-xl-3 *ngFor="let menu of [{'name':'설교','page':'Tab1Page'},{'name': '매일성경','page':'SpecialPage'},{'name': '교구','page':'SpecialPage'},{'name': '오손도손','page':'SpecialPage'}, {'name': '기도제목','page':'SpecialPage'}, {'name': '교회소식','page':'SpecialPage'}]">
+            <ion-card (tap)="openPage(menu.page)">
+              <img src="https://pbs.twimg.com/profile_images/684416030874013696/hICN7ttp.jpg" />
+              <ion-item text-center>
+                {{menu.name}}
+              </ion-item>
+            </ion-card>        
+          </ion-col>
+        </ion-row>              
+      </ion-grid>
+
+      <ion-grid *ngSwitchCase= "'about'" >
+        <ion-row>
+          <ion-col >
+            <ion-item>
+                <strong>복의 근원 평화교회 </strong> 
+            </ion-item>
+            <ion-item>
+                <p>지난 50년 동안 복의 근원 평화교회와 동행하여 주신 하나님 아버지께 감사와 찬송과 영광을 올립니다. </p>
+                <br>
+                <p>이제 평화교회가 새로운 희년을 향해 나가면서 온 성도가 복음의 나팔수 되어 우리 주님 다시 오실 길을 예비하는 교회가 되고자 합니다. </p>
+            </ion-item>
+            <ion-item>
+                <img src="assets/about/con_txt06.jpg" alt="">
+            </ion-item>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid *ngSwitchCase= "'map'" >
+    </ion-grid>
+      
+        
+        
+  </div>
+        
 </ion-content>
