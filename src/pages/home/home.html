@@ -47,7 +47,7 @@
   <div [ngSwitch]="menuType">
       <ion-grid *ngSwitchCase= "'basic'" >
         <ion-row>
-          <ion-col col-6 col-md-4 col-xl-3 *ngFor="let menu of [{'name':'설교','page':'Tab1Page'},{'name': '매일성경','page':'SpecialPage'},{'name': '교구','page':'SpecialPage'},{'name': '오손도손','page':'SpecialPage'}, {'name': '기도제목','page':'SpecialPage'}, {'name': '교회소식','page':'SpecialPage'}]">
+          <ion-col col-6 col-md-4 col-xl-3 *ngFor="let menu of [{'name':'설교','page':'Tab1Page'},{'name': '매일성경','page':'SpecialPage'},{'name': '교구','page':'ParishPage'},{'name': '오손도손','page':'SpecialPage'}, {'name': '기도제목','page':'SpecialPage'}, {'name': '교회소식','page':'SpecialPage'}]">
             <ion-card (tap)="openPage(menu.page)">
               <img src="https://pbs.twimg.com/profile_images/684416030874013696/hICN7ttp.jpg" />
               <ion-item text-center>
