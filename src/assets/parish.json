@@ -1,0 +1,73 @@
+[ {
+    "name": "1교구",
+    "paster": "조이삭",
+    "Assistant_Pastor": "아무개",
+    "Deacon": "아무개",
+    "heading":"1교구 소개입니다",
+    "vision":"110개셀, 564명으로!!!",
+    "image":"assets/1p.png",
+    "color":"#F3404B"
+  },{
+    "name": "2교구",
+    "paster": "신민호",
+    "Assistant_Pastor": "아무개",
+    "Deacon": "아무개",
+    "heading":"2교구 소개입니다",
+    "vision":"",
+    "image":"assets/2p.png",
+    "color":"#08B6B6"
+  },{
+    "name": "3교구",
+    "paster": "황삼준",
+    "Assistant_Pastor": "아무개",
+    "Deacon": "아무개",
+    "heading":"3교구 소개입니다",
+    "vision":"",
+    "image":"assets/3p.png",
+    "color":"#148CF0"
+  },{
+    "name": "4교구",
+    "paster": "아무개",
+    "Assistant_Pastor": "아무개",
+    "Deacon": "아무개",
+    "heading":"4교구 소개입니다",
+    "vision":"",
+    "image":"assets/4p.png",
+    "color":"#F40CA7"
+  },{
+    "name": "5교구",
+    "paster": "아무개",
+    "Assistant_Pastor": "아무개",
+    "Deacon": "아무개",
+    "heading":"5교구 소개입니다",
+    "vision":"",
+    "image":"assets/5p.png",
+   " color":"#F3404B"
+  },{
+    "name": "6교구",
+    "paster": "고창곤",
+    "Assistant_Pastor": "김미진 전도사",
+    "Deacon": "아무개",
+    "heading":"6교구 소개입니다",
+    "vision":"",
+    "image":"assets/5p.png",
+    "color":"#F3404B"
+  },{
+    "name": "7교구",
+    "paster": "박신형",
+    "Assistant_Pastor": "아무개",
+    "Deacon": "아무개",
+    "heading":"7교구 소개입니다",
+    "vision":"",
+    "image":"assets/5p.png",
+    "color":"#F3404B"
+  },{
+    "name": "8교구",
+    "paster": "아무개",
+    "Assistant_Pastor": "아무개",
+    "Deacon": "아무개",
+    "heading":"8교구 소개입니다",
+    "vision":"",
+    "image":"assets/5p.png",
+    "color":"#F3404B"
+  }]

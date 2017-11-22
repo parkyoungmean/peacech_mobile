@@ -44,7 +44,7 @@
   </div>
 
   <ion-list no-lines [virtualScroll]="peace_parish" aproxItemHeight="40px" class="animated zoomIn">
-    <ion-item *virtualItem="let item">
+    <ion-item *virtualItem="let item" (click)="openDetail(item)">
       <div item-left [style.background-color]="item.color" style="width:60px;height:60px;border-radius:50%;" >
         <h4>{{item.name}} </h4>
       </div>
